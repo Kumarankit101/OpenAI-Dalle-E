@@ -21,12 +21,15 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://openai-dall-e-2-25pi.onrender.com/api/v1/post", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://openai-dalle-e-production.up.railway.app/api/v1/post",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();
@@ -44,7 +47,7 @@ const Home = () => {
   }, []);
 
   const handleSearchChange = (e) => {
-    clearTimeout(searchTimeout)
+    clearTimeout(searchTimeout);
     setSearchText(e.target.value);
 
     setSearchedTimeout(
@@ -73,12 +76,12 @@ const Home = () => {
       </div>
       <div className="mt-16">
         <FormField
-        labelName="Search posts"
-        type="text"
-        name="text"
-        placeholder="Search something..."
-        value={searchText}
-        handleChange={handleSearchChange}
+          labelName="Search posts"
+          type="text"
+          name="text"
+          placeholder="Search something..."
+          value={searchText}
+          handleChange={handleSearchChange}
         />
       </div>
       <div className="mt-10">
